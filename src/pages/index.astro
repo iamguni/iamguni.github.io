@@ -1,4 +1,5 @@
 ---
+import { marked } from "marked";
 import site from "../data/site.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -21,6 +22,8 @@ const {
   instagram,
   linkedin
 } = social;
+
+const renderedPageContent = marked.parse(site.pageContent || "");
 ---
 
 <Layout title={siteTitle} description={subtitle}>
@@ -94,7 +97,7 @@ const {
 <div class="elementor-element elementor-element-32a5b63 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="32a5b63" data-widget_type="text-editor.default">
 <div class="elementor-widget-container">
 <p></p>
-<div class="page-content" set:html={pageContent}></div>
+<div class="page-content" set:html={renderedPageContent}></div>
 </div>
 </div>
 <div class="elementor-element elementor-element-c2fa89e elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-element_type="widget" data-id="c2fa89e" data-widget_type="social-icons.default">
