@@ -85,5 +85,5 @@ content:
 
       - name: pageContent
         label: Page Content
-        type: rich-text
+        type: text
         description: Main editable content for the website
