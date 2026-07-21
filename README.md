@@ -1,34 +1,33 @@
-# Astro Stage 1 — Faithful Migration
+# Gurmeet Singh - Astro Stage 2
 
-This is the first stage of migrating the WordPress-generated static site to Astro.
+This is Stage 2 of the migration from the WordPress Simply Static export to Astro.
 
-## Goal
+## What changed
 
-- Preserve the visual design and content of the root `index.html`.
-- Keep the existing local CSS/JS/assets required by the page.
-- Remove unrelated files from the original Simply Static export.
-- Keep WordPress/Elementor runtime dependencies temporarily where they are needed for visual/behavioral parity.
+- Converted the root static page into an Astro page using a reusable `Layout.astro`.
+- Removed WordPress-only feed, comments, XML-RPC, Jetpack, stats, emoji and plugin-runtime markup.
+- Removed the WordPress footer credit from the visible page.
+- Reorganized the required theme, Elementor, click-to-top, custom template and upload assets under `public/assets`.
+- Rewrote local asset references from `/wp-content/...` to `/assets/...`.
+- Kept the PortfolioX and Elementor CSS/JS that may still affect visual fidelity.
+- Added an HTML `/sitemap` route.
+- Kept Google Fonts as the only intentional external font dependency.
 
-## Run
+## Important
+
+Stage 2 prioritizes preserving the existing visual design. Some legacy JavaScript dependencies are still retained, including jQuery from the public jQuery CDN and Elementor runtime scripts. These should be audited in Stage 3 after visual comparison.
+
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the local URL shown by Astro.
+## Build
 
-## Stage 2
+```bash
+npm run build
+```
 
-The next stage should:
-1. Compare the Astro page with the original static page.
-2. Remove unnecessary WordPress/plugin dependencies.
-3. Consolidate CSS and JavaScript.
-4. Move reusable sections into Astro components.
-5. Move editable content into a CMS-friendly content model.
-6. Add clean `/sitemap` and generate `sitemap.xml`.
-7. Configure GitHub Pages deployment.
-
-## Note
-
-`astro.config.mjs` contains a placeholder `site` value. Replace it with the real production domain before generating the final sitemap.
+The production output is generated in `dist/`.

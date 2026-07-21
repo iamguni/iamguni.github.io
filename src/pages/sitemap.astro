@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+const pages = [
+  { title: "Home", href: "/" },
+  { title: "Sitemap", href: "/sitemap" },
+];
+---
+<Layout title="Sitemap - Gurmeet Singh" description="HTML sitemap for Gurmeet Singh - a Coding Kavi">
+  <main class="container" style="padding: 4rem 1.5rem;">
+    <h1>Sitemap</h1>
+    <ul>
+      {pages.map((page) => <li><a href={page.href}>{page.title}</a></li>)}
+    </ul>
+  </main>
+</Layout>
