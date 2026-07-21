@@ -8,7 +8,7 @@ content:
   - name: site-settings
     label: Site Settings
     type: file
-    path: src/content/site/settings.json
+    path: src/data/site.json
 
     fields:
       - name: siteLogo
