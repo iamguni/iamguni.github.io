@@ -1,0 +1,84 @@
+media:
+  - name: site-media
+    label: Site Media
+    input: public/uploads
+    output: /uploads
+
+content:
+  - name: site-settings
+    label: Site Settings
+    type: file
+    path: src/content/site/settings.json
+
+    fields:
+      - name: siteLogo
+        label: Site Logo
+        type: image
+
+      - name: siteTitle
+        label: Site Title
+        type: string
+
+      - name: subtitle
+        label: Subtitle
+        type: string
+
+      - name: ownerPhoto
+        label: Owner Photo
+        type: image
+
+      - name: cv
+        label: CV
+        type: file
+
+      - name: websiteUrl
+        label: Website URL
+        type: string
+
+      - name: favicon
+        label: Favicon
+        type: image
+
+      - name: social
+        label: Social Profiles
+        type: object
+        fields:
+          - name: facebook
+            label: Facebook Username
+            type: string
+
+          - name: twitter
+            label: X / Twitter Username
+            type: string
+
+          - name: youtube
+            label: YouTube Username
+            type: string
+
+          - name: instagram
+            label: Instagram Username
+            type: string
+
+          - name: linkedin
+            label: LinkedIn Username
+            type: string
+
+      - name: googleMapsUrl
+        label: Google Maps Link
+        type: string
+
+      - name: poetryBlogUrl
+        label: Poetry Blog Link
+        type: string
+
+      - name: otherLinks
+        label: Other Links
+        type: object
+        list:
+          - name: label
+            label: Link Name
+            type: string
+
+          - name: url
+            label: Link URL
+            type: string
