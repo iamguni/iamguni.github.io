@@ -4,8 +4,8 @@
   "subtitle": "",
   "ownerPhoto": "",
   "cv": "",
-  "websiteUrl": "",
   "favicon": "",
+  "websiteUrl": "",
   "social": {
     "facebook": "",
     "twitter": "",
@@ -15,5 +15,6 @@
   },
   "googleMapsUrl": "",
   "poetryBlogUrl": "",
-  "otherLinks": []
+  "otherLinks": [],
+  "pageContent": ""
 }

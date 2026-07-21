@@ -31,13 +31,13 @@ content:
         label: CV
         type: file
 
-      - name: websiteUrl
-        label: Website URL
-        type: string
-
       - name: favicon
         label: Favicon
         type: image
+
+      - name: websiteUrl
+        label: Website URL
+        type: string
 
       - name: social
         label: Social Profiles
@@ -82,3 +82,8 @@ content:
           - name: url
             label: Link URL
             type: string
+
+      - name: pageContent
+        label: Page Content
+        type: rich-text
+        description: Main editable content for the website
