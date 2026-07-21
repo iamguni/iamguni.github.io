@@ -1,13 +1,25 @@
 ---
 const { title = "Gurmeet Singh - a Coding Kavi", description = "Gurmeet Singh – Poet in Delhi NCR & Engineer Poet at Infosys" } = Astro.props;
 ---
+
+---
+import site from "../data/site.json";
+
+const {
+  siteTitle,
+  subtitle,
+  favicon
+} = site;
+---
+
 <!doctype html>
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{siteTitle}</title>
+    <meta name="description" content={subtitle} />
+    {favicon && (<link rel="icon" href={favicon} />)}
     <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href={Astro.url} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
