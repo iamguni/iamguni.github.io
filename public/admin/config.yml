@@ -4,7 +4,7 @@ backend:
   name: github
   repo: iamguni/iamguni.github.io
   branch: main
-  base_url: sveltia-cms-auth.gurmeetworks.workers.dev
+  base_url: https://sveltia-cms-auth.gurmeetworks.workers.dev
   # auth_methods: token
 
 site_url: https://iamguni.in
