@@ -4,6 +4,7 @@ backend:
   name: github
   repo: iamguni/iamguni.github.io
   branch: main
+  auth_methods: token
 
 site_url: https://iamguni.in
 
