@@ -1,32 +1,54 @@
 # Personal Website
 
-A fast, lightweight, and responsive personal website built with Astro and designed for deployment on GitHub Pages.
+A fast, lightweight, responsive personal website built with Astro and deployed to GitHub Pages. The site preserves the original converted WordPress/Elementor design while using Astro for the static build.
 
-## About
+## Content Management
 
-This website serves as a personal and professional online presence, showcasing information about the site owner, professional background, skills, experience, projects, and ways to connect.
+The website uses **Sveltia CMS** for content editing. The CMS is available at:
 
-The website is designed to be:
+`/admin/`
 
-- Fast and lightweight
-- Responsive across desktop, tablet, and mobile devices
-- Clean and easy to maintain
-- SEO-friendly
-- Accessible from modern web browsers
-- Suitable for free static hosting
-- Ready for GitHub Pages deployment
+Editable content includes site branding, owner photo, CV, favicon, website and external links, social usernames, Google Maps link, poetry blog link, other links, and the main formatted page content.
+
+Content is stored in `src/data/site.json`. Media uploaded through the CMS is stored in `public/uploads`.
 
 ## Project Structure
 
 ```text
 .
 ├── public/
-│   └── assets/       # Images, fonts, styles, scripts, and static assets
+│   ├── admin/          # Sveltia CMS interface and configuration
+│   ├── assets/         # Static CSS, JavaScript, fonts, and legacy site assets
+│   └── uploads/        # CMS-managed images and files
 │
 ├── src/
-│   ├── layouts/      # Shared website layouts
-│   └── pages/        # Website pages and routes
+│   ├── data/           # Site content
+│   ├── layouts/        # Shared website layout
+│   ├── pages/          # Astro pages and routes
+│   └── styles/         # Custom site CSS
 │
-├── astro.config.mjs  # Astro configuration
-├── package.json      # Project dependencies and commands
-└── README.md         # Project documentation
+├── .github/workflows/  # GitHub Pages deployment workflow
+├── astro.config.mjs    # Astro configuration
+├── package.json        # Project dependencies and commands
+├── CNAME               # Custom domain configuration
+└── README.md           # Project documentation
+```
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Build the production site with:
+
+```bash
+npm run build
+```
+
+The generated static site is written to `dist/`.
+
+## Deployment
+
+Changes pushed to the `main` branch are built and deployed automatically through GitHub Actions to GitHub Pages.

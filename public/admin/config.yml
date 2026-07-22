@@ -1,89 +1,96 @@
-media:
-  - name: site-media
-    label: Site Media
-    input: public/uploads
-    output: /uploads
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 
-content:
+backend:
+  name: github
+  repo: iamguni/iamguni.github.io
+  branch: main
+  auth_methods: [oauth, token]
+
+site_url: https://iamguni.in
+
+media_folder: /public/uploads
+public_folder: /uploads
+
+singletons:
   - name: site-settings
     label: Site Settings
-    type: file
-    path: src/data/site.json
-
+    icon: settings
+    file: /src/data/site.json
     fields:
       - name: siteLogo
         label: Site Logo
-        type: image
+        widget: image
 
       - name: siteTitle
         label: Site Title
-        type: string
+        widget: string
 
       - name: subtitle
         label: Subtitle
-        type: string
+        widget: string
 
       - name: ownerPhoto
         label: Owner Photo
-        type: image
+        widget: image
 
       - name: cv
         label: CV
-        type: file
+        widget: file
 
       - name: favicon
         label: Favicon
-        type: image
+        widget: image
 
       - name: websiteUrl
         label: Website URL
-        type: string
+        widget: string
+        hint: Enter the complete website URL, including https://
 
       - name: social
         label: Social Profiles
-        type: object
+        widget: object
         fields:
           - name: facebook
             label: Facebook Username
-            type: string
+            widget: string
 
           - name: twitter
             label: X / Twitter Username
-            type: string
+            widget: string
 
           - name: youtube
             label: YouTube Username
-            type: string
+            widget: string
 
           - name: instagram
             label: Instagram Username
-            type: string
+            widget: string
 
           - name: linkedin
             label: LinkedIn Username
-            type: string
+            widget: string
 
       - name: googleMapsUrl
         label: Google Maps Link
-        type: string
+        widget: string
 
       - name: poetryBlogUrl
         label: Poetry Blog Link
-        type: string
+        widget: string
 
       - name: otherLinks
         label: Other Links
-        type: object
-        list:
+        widget: list
+        label_singular: Other Link
+        fields:
           - name: label
             label: Link Name
-            type: string
-
+            widget: string
           - name: url
             label: Link URL
-            type: string
+            widget: string
 
       - name: pageContent
         label: Page Content
-        type: rich-text
-        description: Main editable content for the website
+        widget: richtext
+        hint: Main editable page content. Formatting is preserved on the website.
