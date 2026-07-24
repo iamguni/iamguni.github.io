@@ -1,54 +1,34 @@
-# Personal Website
+# Gurmeet Singh - A Coding Kavi Portfolio (Astro + Tailwind CSS)
 
-A fast, lightweight, responsive personal website built with Astro and deployed to GitHub Pages. The site preserves the original converted WordPress/Elementor design while using Astro for the static build.
+Professional personal portfolio tailored specifically for technical architecture leadership and fine lyrical craft skills.
 
-## Content Management
+## Features
+- Complete custom configuration for **GitHub Pages** distribution.
+- Beautiful custom brand style inspired by structural red/yellow/black theme accents.
+- Full responsive structure with dedicated Hero layout grids, full-text biography, and integrated social tiles.
 
-The website uses **Sveltia CMS** for content editing. The CMS is available at:
+## Getting Started Locally
 
-`/admin/`
+1. **Unzip** the archive package.
+2. Open terminal inside the root project directory (`guni-portfolio-astro`).
+3. Install project dependencies:
+   ```bash
+   npm install
+   ```
+4. Spin up the modern hot-reload development preview:
+   ```bash
+   npm run dev
+   ```
+5. Open your local web link (typically `http://localhost:4321`).
 
-Editable content includes site branding, owner photo, CV, favicon, website and external links, social usernames, Google Maps link, poetry blog link, other links, and the main formatted page content.
+## How to Customize Image Frame
+Place your preferred high-resolution profile portrait picture inside the standard directory folder structure (e.g. `public/profile.jpg`), then modify line 92 of `src/pages/index.astro` to include an exact `<img src="/profile.jpg" ... />` component element inside the frame div.
 
-Content is stored in `src/data/site.json`. Media uploaded through the CMS is stored in `public/uploads`.
-
-## Project Structure
-
-```text
-.
-├── public/
-│   ├── admin/          # Sveltia CMS interface and configuration
-│   ├── assets/         # Static CSS, JavaScript, fonts, and legacy site assets
-│   └── uploads/        # CMS-managed images and files
-│
-├── src/
-│   ├── data/           # Site content
-│   ├── layouts/        # Shared website layout
-│   ├── pages/          # Astro pages and routes
-│   └── styles/         # Custom site CSS
-│
-├── .github/workflows/  # GitHub Pages deployment workflow
-├── astro.config.mjs    # Astro configuration
-├── package.json        # Project dependencies and commands
-├── CNAME               # Custom domain configuration
-└── README.md           # Project documentation
-```
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-Build the production site with:
-
-```bash
-npm run build
-```
-
-The generated static site is written to `dist/`.
-
-## Deployment
-
-Changes pushed to the `main` branch are built and deployed automatically through GitHub Actions to GitHub Pages.
+## Deployment to GitHub Pages
+To successfully serve this out on your GitHub profile distribution domain (`username.github.io`):
+1. Change the `site` domain entry inside `astro.config.mjs` to match your target landing endpoint.
+2. Build standard static artifact bundles via:
+   ```bash
+   npm run build
+   ```
+3. Push output production distribution directories (`dist/*`) directly to your active repository branch.

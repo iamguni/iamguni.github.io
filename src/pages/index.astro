@@ -1,162 +1,364 @@
 ---
-import { marked } from "marked";
-import site from "../data/site.json";
-import Layout from "../layouts/Layout.astro";
-
-const {
-  siteLogo,
-  siteTitle,
-  subtitle,
-  ownerPhoto,
-  cv,
-  social,
-  googleMapsUrl,
-  poetryBlogUrl,
-  pageContent
-} = site;
-
-const {
-  facebook,
-  twitter,
-  youtube,
-  instagram,
-  linkedin
-} = social;
-
-const renderedPageContent = marked.parse(site.pageContent || "");
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title={siteTitle} description={subtitle}>
-  <Fragment slot="head">
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteTitle} />
-    <meta property="og:title" content={siteTitle} />
-    <meta property="og:description" content={subtitle} />
-    <meta property="og:url" content="/" />
-    <meta property="og:image" content={siteLogo} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@i_am_guni" />
-    <meta name="twitter:creator" content="@i_am_guni" />
-    <meta name="twitter:title" content={siteTitle} />
-    <meta name="twitter:description" content={subtitle} />
-    <meta name="twitter:image" content={siteLogo} />
-    <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Person","name":"Gurmeet Singh","sameAs":["https://www.facebook.com/iamguni/","https://x.com/i_am_guni","https://www.instagram.com/i_am_guni/","https://www.youtube.com/@iamguni","https://www.linkedin.com/in/iamguni/"]})} />
-  </Fragment>
-  <div id="page" class="site">
-<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
-<header class="site-header px-hstyle1" id="masthead">
-<div class="container-fluid pxm-style1">
-<div class="navigation mx-4">
-<div class="d-flex">
-<div class="pxms1-logo">
-</div>
-<div class="pxms1-menu ms-auto">
-<nav class="main-navigation" id="site-navigation">
-<div class="menu-mainmenu-container"><ul class="portfoliox-menu" id="portfoliox-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-37 current_page_item menu-item-64" id="menu-item-64"><a aria-current="page" href="/">About me</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63" id="menu-item-63"><a href="/sitemap/">Sitemap</a></li>
-</ul></div> </nav><!-- #site-navigation -->
-</div>
-</div>
-</div>
-</div>
-</header><!-- #masthead -->
-<!-- home -->
-<section class="home" id="home">
-<div class="container">
-<div class="home-all-content">
-<div class="row">
-<div class="col-lg-6">
-<div class="content">
-<h5>WELCOME TO MY WORLD</h5>
-<h1>Hi, I'm Gurmeet <br/><span id="type1">{siteTitle}</span></h1>
-<a class="btn btn-hero" href={cv}>Download CV</a>
-<a class="btn btn-hero" href={poetryBlogUrl}>My Poetry Blog</a>
-</div>
-</div>
-<div class="col-lg-6">
-<div class="hero-img">
-<img alt="" src={ownerPhoto}/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="container mt-5 mb-5 pt-5 pb-5">
-<div class="row">
-<div class="col-lg-12">
-<main class="site-main" id="primary">
-<article class="post-37 page type-page status-publish hentry" id="post-37">
-<header class="entry-header page-header">
-<h1 class="entry-title">About me</h1> </header><!-- .entry-header -->
-<div class="entry-content">
-<div class="elementor elementor-37" data-elementor-id="37" data-elementor-type="wp-post">
-<div class="elementor-element elementor-element-6e15dcd e-flex e-con-boxed e-con e-parent" data-element_type="container" data-id="6e15dcd">
-<div class="e-con-inner">
-<div class="elementor-element elementor-element-32a5b63 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="32a5b63" data-widget_type="text-editor.default">
-<div class="elementor-widget-container">
-<p></p>
-<div class="page-content" set:html={renderedPageContent}></div>
-</div>
-</div>
-<div class="elementor-element elementor-element-c2fa89e elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-element_type="widget" data-id="c2fa89e" data-widget_type="social-icons.default">
-<div class="elementor-widget-container">
-<div class="elementor-social-icons-wrapper elementor-grid" role="list">
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-dd6e2bf" href={`https://www.facebook.com/${facebook}`} target="_blank">
-<span class="elementor-screen-only">Facebook</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg> </a>
-</span>
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-614f04f" href={`https://x.com/${twitter}`} target="_blank">
-<span class="elementor-screen-only">Twitter</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fab-twitter" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> </a>
-</span>
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-1d8b314" href={`https://www.youtube.com/${youtube}`} target="_blank">
-<span class="elementor-screen-only">Youtube</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg> </a>
-</span>
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-wordpress elementor-repeater-item-927a8c8" href={poetryBlogUrl} target="_blank">
-<span class="elementor-screen-only">WordPress</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fab-wordpress" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M61.7 169.4l101.5 278C92.2 413 43.3 340.2 43.3 256c0-30.9 6.6-60.1 18.4-86.6zm337.9 75.9c0-26.3-9.4-44.5-17.5-58.7-10.8-17.5-20.9-32.4-20.9-49.9 0-19.6 14.8-37.8 35.7-37.8.9 0 1.8.1 2.8.2-37.9-34.7-88.3-55.9-143.7-55.9-74.3 0-139.7 38.1-177.8 95.9 5 .2 9.7.3 13.7.3 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l77.5 230.4L249.8 247l-33.1-90.8c-11.5-.7-22.3-2-22.3-2-11.5-.7-10.1-18.2 1.3-17.5 0 0 35.1 2.7 56 2.7 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l76.9 228.7 21.2-70.9c9-29.4 16-50.5 16-68.7zm-139.9 29.3l-63.8 185.5c19.1 5.6 39.2 8.7 60.1 8.7 24.8 0 48.5-4.3 70.6-12.1-.6-.9-1.1-1.9-1.5-2.9l-65.4-179.2zm183-120.7c.9 6.8 1.4 14 1.4 21.9 0 21.6-4 45.8-16.2 76.2l-65 187.9C426.2 403 468.7 334.5 468.7 256c0-37-9.4-71.8-26-102.1zM504 256c0 136.8-111.3 248-248 248C119.2 504 8 392.7 8 256 8 119.2 119.2 8 256 8c136.7 0 248 111.2 248 248zm-11.4 0c0-130.5-106.2-236.6-236.6-236.6C125.5 19.4 19.4 125.5 19.4 256S125.6 492.6 256 492.6c130.5 0 236.6-106.1 236.6-236.6z"></path></svg> </a>
-</span>
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-0410853" href={`https://www.instagram.com/${instagram}/`} target="_blank">
-<span class="elementor-screen-only">Instagram</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a>
-</span>
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dd09cbb" href={`https://www.linkedin.com/in/${linkedin}/`} target="_blank">
-<span class="elementor-screen-only">Linkedin</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg> </a>
-</span>
-<span class="elementor-grid-item" role="listitem">
-<a class="elementor-icon elementor-social-icon elementor-social-icon-map elementor-repeater-item-5dff2d4" href={googleMapsUrl} target="_blank">
-<span class="elementor-screen-only">Map</span>
-<svg aria-hidden="true" class="e-font-icon-svg e-fas-map" viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 117.66v346.32c0 11.32 11.43 19.06 21.94 14.86L160 416V32L20.12 87.95A32.006 32.006 0 0 0 0 117.66zM192 416l192 64V96L192 32v384zM554.06 33.16L416 96v384l139.88-55.95A31.996 31.996 0 0 0 576 394.34V48.02c0-11.32-11.43-19.06-21.94-14.86z"></path></svg> </a>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><!-- .entry-content -->
-</article><!-- #post-37 -->
-</main><!-- #main -->
-</div>
-</div>
-</div>
-<footer class="site-footer pt-3 pb-3" id="colophon">
-<div class="container">
-<div class="site-info text-center">
-<a href={poetryBlogUrl}>Designed by Gurmeet Singh</a>
-<span class="sep"></span>
-</div><!-- .site-info -->
-</div><!-- .container -->
-</footer><!-- #colophon -->
-</div>
+<Layout title="Gurmeet Singh | A Coding Kavi - Portfolio">
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-4 group">
+        <!-- Contrast Badge for Logo -->
+        <div class="relative w-12 h-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-md shadow-black/50 border border-gray-800 transition-transform duration-300 group-hover:scale-105">
+          <img 
+            src="/Normal Logo - Transparent.PNG" 
+            alt="Guni Logo" 
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-white font-bold tracking-wide leading-none text-lg group-hover:text-brand-yellow transition-colors">
+            Gurmeet Singh
+          </span>
+          <span class="text-xs text-gray-400 font-medium tracking-wider mt-1 font-mono">
+            A Coding Kavi
+          </span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+        <a href="#about" class="text-gray-300 hover:text-brand-yellow transition-colors">About Me</a>
+        <a href="#journey" class="text-gray-300 hover:text-brand-yellow transition-colors">Journey</a>
+        <a href="#literary" class="text-gray-300 hover:text-brand-yellow transition-colors">Literary Work</a>
+        <a href="#blog" class="text-gray-300 hover:text-brand-yellow transition-colors">Poetry Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-transparent border border-brand-yellow text-brand-yellow rounded-full hover:bg-brand-yellow hover:text-brand-dark transition-all duration-300">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero / Landing Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center px-6 py-16 overflow-hidden">
+      <!-- Background Ambient Glows -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl -z-10 animate-pulse" style="animation-delay: 2s;"></div>
+      
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        <!-- Content Column -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-lightDark border border-gray-800 text-xs font-semibold tracking-widest uppercase text-brand-yellow shadow-inner">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+            </span>
+            WELCOME TO MY WORLD
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-amber-400 to-brand-red">Gurmeet</span>
+            <span class="block text-2xl sm:text-3xl lg:text-4xl font-serif italic font-normal text-gray-300 mt-2">
+              a Coding Kavi
+            </span>
+          </h1>
+          
+          <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+            A rare fusion of logic and lyricism — a software engineer by profession and a Hindi poet by passion. Bridging the gap between clean code and profound verses.
+          </p>
+          
+          <!-- Big Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#cv-download" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-yellow to-amber-500 text-brand-dark text-sm font-bold uppercase tracking-wider rounded-xl shadow-xl shadow-brand-yellow/20 hover:shadow-brand-yellow/30 hover:-translate-y-0.5 transition-all text-center">
+              Download CV
+            </a>
+            <a href="#blog" class="w-full sm:w-auto px-8 py-4 bg-brand-lightDark border border-gray-700 text-white text-sm font-bold uppercase tracking-wider rounded-xl hover:bg-gray-800 hover:border-brand-yellow transition-all text-center">
+              Explore Poetry Blog
+            </a>
+          </div>
+        </div>
+        
+        <!-- Big Profile Picture Container Column -->
+        <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+          <div class="relative group">
+            <!-- Decorative Frames -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-brand-red via-brand-yellow to-amber-400 rounded-3xl rotate-6 opacity-40 group-hover:rotate-12 transition-transform duration-500 blur-sm"></div>
+            <div class="absolute inset-0 bg-brand-lightDark rounded-3xl -rotate-3 border border-gray-800"></div>
+            
+            <!-- main placeholder image / profile frame -->
+            <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border-2 border-gray-700 bg-gradient-to-b from-brand-lightDark to-black flex flex-col items-center justify-center p-6 text-center z-10">
+              <!-- If image path exists user can place it here, currently showing an artistic avatar representation -->
+              <div class="w-32 h-32 rounded-full bg-brand-yellow/20 border-2 border-brand-yellow flex items-center justify-center text-brand-yellow mb-4 shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Gurmeet Singh</h3>
+              <p class="text-xs text-brand-yellow tracking-widest uppercase font-mono mt-1">Project Manager & Poet</p>
+              <div class="mt-4 p-3 bg-black/40 rounded-xl border border-gray-800 max-w-xs">
+                <p class="text-xs text-gray-400 italic">"Between algorithms and verses, I discovered balance."</p>
+              </div>
+              <span class="absolute bottom-2 text-[10px] text-gray-600 font-mono">Replace with your high-res picture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed About Me Section -->
+    <section id="about" class="py-20 bg-brand-lightDark border-y border-gray-900 px-6">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-2">
+          <h2 class="text-3xl font-bold text-white tracking-tight">About Me</h2>
+          <div class="w-12 h-1 bg-brand-yellow mx-auto rounded-full"></div>
+          <p class="text-lg text-brand-yellow font-serif italic pt-2">Gurmeet Singh — Engineer Poet and Emerging Hindi Poet in Delhi NCR</p>
+        </div>
+
+        <div class="prose prose-invert max-w-none text-gray-300 space-y-6 leading-relaxed text-base">
+          <p>
+            Gurmeet Singh is a rare fusion of logic and lyricism — a software engineer by profession and a Hindi poet by passion. His life is a testament to the harmony between technology and creativity, showing that analytical thinking and poetic expression can coexist beautifully. Recognized as a poet in Delhi NCR, a poet in Ghaziabad, and a kavi at Infosys, Gurmeet inspires countless emerging poets and literature enthusiasts.
+          </p>
+
+          <!-- Sub section: Roots -->
+          <div class="bg-black/30 p-6 rounded-2xl border border-gray-800/80 my-8 space-y-3">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-brand-red rounded-full"></span>
+              Roots and Early Life — From Kheri Khushnam to Ghaziabad
+            </h3>
+            <p class="text-gray-400">
+              Born in 1992 in the quaint village of Kheri Khushnam, Shamli district, Gurmeet grew up in a middle-class family where values like perseverance, discipline, and curiosity were deeply instilled.
+            </p>
+            <p class="text-gray-400">
+              Life changed dramatically when he joined Vishesh Kendriya Vidyalaya, Kamla Nehru Nagar, Ghaziabad. Moving from a UP Board school to a CBSE school was a significant academic and cultural shift. As a Hindi-medium student, he was advised to choose Hindi as a subject, but Gurmeet’s heart was set on Computer Science. His decision to follow his passion, despite doubts, laid the foundation for his journey as an engineer poet.
+            </p>
+          </div>
+
+          <!-- Sub section: The Turning Point -->
+          <div class="bg-black/30 p-6 rounded-2xl border border-gray-800/80 my-8 space-y-3">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-brand-yellow rounded-full"></span>
+              The Turning Point — Challenges and Resilience
+            </h3>
+            <p class="text-gray-400">
+              The transition from Hindi-medium UP Board education to English-medium CBSE curriculum in Class 11 was demanding. Gurmeet, a bright student in Hindi, had to adapt to a completely new learning environment. Through persistence, countless late-night study sessions, and unwavering determination, he not only adapted but excelled, proving that courage and commitment can overcome any obstacle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic and Professional Journey Section -->
+    <section id="journey" class="py-20 px-6 max-w-5xl mx-auto">
+      <div class="text-center space-y-2 mb-16">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Academic and Professional Journey</h2>
+        <div class="w-12 h-1 bg-brand-red mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-brand-lightDark p-8 rounded-2xl border border-gray-800 relative hover:border-brand-yellow/50 transition-colors">
+          <div class="absolute -top-4 left-6 bg-brand-yellow text-brand-dark font-mono font-bold text-xs uppercase px-3 py-1 rounded-md tracking-wider">
+            Education
+          </div>
+          <h3 class="text-xl font-bold text-white mt-2">B.Tech in Computer Science</h3>
+          <p class="text-sm text-brand-yellow font-medium mt-1">KIET Group of Institutions, Ghaziabad</p>
+          <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+            Pursued engineering from one of Delhi NCR’s top engineering colleges. Founded institutional literary groups and embedded technology mindsets alongside artistic endeavors.
+          </p>
+        </div>
+
+        <div class="bg-brand-lightDark p-8 rounded-2xl border border-gray-800 relative hover:border-brand-red/50 transition-colors">
+          <div class="absolute -top-4 left-6 bg-brand-red text-white font-mono font-bold text-xs uppercase px-3 py-1 rounded-md tracking-wider">
+            Corporate Leadership
+          </div>
+          <h3 class="text-xl font-bold text-white mt-2">Project Manager</h3>
+          <p class="text-sm text-brand-red font-medium mt-1">Infosys Limited (Joined 2015)</p>
+          <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+            Trained at the renowned Mysore campus. Currently managing complex IT project governance and leadership. Infuses identical structural creativity into both software platforms and lyrical systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Literary Contributions Section -->
+    <section id="literary" class="py-20 bg-brand-lightDark border-y border-gray-900 px-6">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-2">
+          <h2 class="text-3xl font-bold text-white tracking-tight">Literary Contributions</h2>
+          <div class="w-12 h-1 bg-brand-yellow mx-auto rounded-full"></div>
+          <p class="text-sm text-gray-400 uppercase tracking-widest mt-2">KIET-Kavyanjali & Infosys Poetry Clubs</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-black/40 rounded-xl border border-gray-800/80 space-y-2">
+            <span class="text-2xl">✍️</span>
+            <h4 class="text-white font-bold text-lg">KIET-Kavyanjali (2013)</h4>
+            <p class="text-gray-400 text-xs leading-relaxed">
+              Founded and served as president to cultivate a vibrant literary club promoting Hindi literature among technology students.
+            </p>
+          </div>
+          
+          <div class="p-6 bg-black/40 rounded-xl border border-gray-800/80 space-y-2">
+            <span class="text-2xl">🏢</span>
+            <h4 class="text-white font-bold text-lg">Infosys Pune (2016)</h4>
+            <p class="text-gray-400 text-xs leading-relaxed">
+              Extended the poetic vision into the corporate workspace, establishing Kavyanjali for local engineering units.
+            </p>
+          </div>
+
+          <div class="p-6 bg-black/40 rounded-xl border border-gray-800/80 space-y-2">
+            <span class="text-2xl">🎙️</span>
+            <h4 class="text-white font-bold text-lg">Infosys Noida (2023)</h4>
+            <p class="text-gray-400 text-xs leading-relaxed">
+              Fostered open mic cultures and comprehensive creative circles, securing deep recognition as a signature corporate advocate.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center bg-black/20 p-8 rounded-2xl border border-gray-800 max-w-2xl mx-auto space-y-4">
+          <h3 class="text-xl font-serif italic text-white">The Poet Within</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Gurmeet’s poetry is simple, evocative, and deeply reflective. Drawing inspiration from Kabir and Tulsidas, his work touches on love, nature, society, and personal introspection. As one of the emerging poets in Delhi NCR and Ghaziabad, he has captivated audiences at festivals, cultural gatherings, and corporate events.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Poetry Blog Call To Action Section -->
+    <section id="blog" class="py-20 px-6 max-w-4xl mx-auto text-center space-y-8">
+      <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-brand-lightDark to-black border border-gray-800 relative overflow-hidden shadow-2xl">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-brand-yellow/5 rounded-full blur-2xl"></div>
+        
+        <span class="text-xs uppercase font-mono tracking-widest text-brand-yellow px-3 py-1 bg-brand-yellow/10 rounded-full">A Space Where Words Come Alive</span>
+        <h2 class="text-3xl font-bold text-white mt-4">For Those Who Appreciate Hindi Poetry</h2>
+        
+        <p class="text-gray-400 max-w-xl mx-auto mt-4 text-sm md:text-base leading-relaxed">
+          Gurmeet’s blog offers a space where technology meets tenderness, and logic meets lyricism. Explore unique collections ranging from the serene fields of Shamli to the dynamic boardrooms of Infosys.
+        </p>
+
+        <div class="pt-6">
+          <a href="https://iamguni.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-red hover:bg-red-700 text-white font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-brand-red/20 transition-all group">
+            Visit the Poetry Blog 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </a>
+        </div>
+        
+        <p class="text-xs text-gray-500 mt-6">
+          Each poem is a reflection of life, a conversation with society, and an invitation to feel deeply.
+        </p>
+      </div>
+      
+      <!-- Final Quote Box -->
+      <div class="max-w-xl mx-auto pt-6">
+        <div class="text-2xl font-serif text-brand-yellow italic">✨ A Final Thought</div>
+        <p class="text-gray-300 font-serif italic text-lg mt-3">
+          "Between algorithms and verses, I discovered balance. Between logic and emotion, I found poetry. And through poetry — I found myself."
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with Socials & Brand Colors -->
+  <footer id="contact" class="bg-black border-t border-gray-900 pt-16 pb-8 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-gray-900">
+      
+      <!-- Footer Left Info -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 shadow-md border border-gray-850">
+            <img 
+              src="/Normal Logo - Transparent.PNG" 
+              alt="Guni Logo" 
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <span class="text-white font-bold tracking-wide">Gurmeet Singh Portfolio</span>
+        </div>
+        <p class="text-xs text-gray-500 leading-relaxed">
+          Showcasing specialized solutions in tech enterprise systems infrastructure management coupled with fine lyrical craft works.
+        </p>
+      </div>
+
+      <!-- Sitemap / Quick Links -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-bold tracking-wider text-gray-400 uppercase">Sitemap</h4>
+        <ul class="text-xs space-y-2 text-gray-400">
+          <li><a href="#" class="hover:text-brand-yellow transition-colors">Home</a></li>
+          <li><a href="#about" class="hover:text-brand-yellow transition-colors">About Me</a></li>
+          <li><a href="#journey" class="hover:text-brand-yellow transition-colors">Journey & Experience</a></li>
+          <li><a href="#literary" class="hover:text-brand-yellow transition-colors">Poetry Clubs & Legacy</a></li>
+          <li><a href="https://iamguni.in" target="_blank" class="hover:text-brand-yellow transition-colors">Official Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Channels Stack -->
+      <div class="space-y-4">
+        <h4 class="text-sm font-bold tracking-wider text-gray-400 uppercase">Connect Channels</h4>
+        
+        <!-- Premium Brand-Colored Logo Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          
+          <!-- Facebook (True Blue) -->
+          <a href="https://facebook.com/iamguni" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-3 rounded-xl bg-[#1877F2]/10 border border-[#1877F2]/30 text-[#1877F2] hover:bg-[#1877F2] hover:text-white hover:scale-105 transition-all duration-300 shadow-sm" title="Facebook">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram (Vibrant Gradient Feel) -->
+          <a href="https://instagram.com/i_am_guni" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-3 rounded-xl bg-[#E4405F]/10 border border-[#E4405F]/30 text-[#E4405F] hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white hover:scale-105 transition-all duration-300 shadow-sm" title="Instagram">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+
+          <!-- Website/WordPress (Your Signature Brand Red) -->
+          <a href="https://iamguni.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-3 rounded-xl bg-brand-red/10 border border-brand-red/30 text-brand-red hover:bg-brand-red hover:text-white hover:scale-105 transition-all duration-300 shadow-sm" title="Website / Poetry Blog">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.014 2.219c4.953.011 8.979 4.043 8.979 9.006 0 1.201-.24 2.34-.668 3.391l-2.454-6.666c.214-.092.355-.26.355-.503 0-.342-.279-.621-.621-.621H13.43c-.342 0-.621.279-.621.621 0 .237.135.4.339.493l1.458 3.911-2.203 6.649-2.28-6.732.55-.132c.334-.081.488-.277.488-.501 0-.342-.279-.621-.621-.621H6.376c-.342 0-.621.279-.621.621 0 .229.13.393.327.488l2.094 5.767C7.03 16.711 6.1 14.935 6.1 13c0-4.049 2.651-7.502 6.45-8.665.342-.093 1.054-.374 1.472-.635-.745-.989-2.028-1.481-2.008-1.481zm-7.662 12.11c.731 2.235 2.186 4.103 4.095 5.319l-2.316-6.386c-.958.261-1.779.625-1.779 1.067zm7.712 6.452c1.765 0 3.397-.502 4.793-1.353l-3.235-8.811-1.558 4.674c.48.141.772.352.772.637 0 .428-.431.782-.958.782-.239 0-.466-.073-.655-.184l.841 2.29c.001.001-.001.164.002.165zm5.728-2.204c1.603-1.417 2.641-3.415 2.768-5.659-.092-.014-.183-.021-.268-.021-.767 0-1.471.492-1.471 1.258 0 .614.394 1.139.394 1.753 0 .767-.788 1.468-1.555 1.468-.261 0-.505-.083-.711-.225l.843 2.426z"/>
+            </svg>
+          </a>
+
+          <!-- YouTube (Crimson Red) -->
+          <a href="#" class="flex items-center justify-center p-3 rounded-xl bg-[#FF0000]/10 border border-[#FF0000]/30 text-[#FF0000] hover:bg-[#FF0000] hover:text-white hover:scale-105 transition-all duration-300 shadow-sm" title="YouTube">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+
+          <!-- Twitter/X (Sleek White/Minimalist Black Accent) -->
+          <a href="#" class="flex items-center justify-center p-3 rounded-xl bg-white/5 border border-white/20 text-white hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 shadow-sm" title="X (Twitter)">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+
+          <!-- LinkedIn (Professional Corporate Blue) -->
+          <a href="#" class="flex items-center justify-center p-3 rounded-xl bg-[#0077B5]/10 border border-[#0077B5]/30 text-[#0077B5] hover:bg-[#0077B5] hover:text-white hover:scale-105 transition-all duration-300 shadow-sm" title="LinkedIn">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+
+        </div>
+
+        <!-- Location Map Anchor Link -->
+        <div class="pt-2 text-center md:text-left">
+          <a href="#" class="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-brand-yellow transition-colors group">
+            <span class="text-brand-red group-hover:animate-bounce">📍</span> 
+            <span>Ghaziabad, Uttar Pradesh, India</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright and Attribution Footer Info Box -->
+    <div class="max-w-6xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-600 text-center sm:text-left gap-4">
+      <p>© {new Date().getFullYear()} Gurmeet Singh. All Rights Reserved.</p>
+      <p class="font-mono">Designed by <span class="text-gray-400">Gurmeet Singh</span></p>
+    </div>
+  </footer>
 </Layout>

@@ -1,51 +1,43 @@
 ---
-import site from "../data/site.json";
-import "../styles/iamguni.css";
+interface Props {
+  title: string;
+}
 
-const {
-  siteTitle,
-  subtitle,
-  favicon
-} = site;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en-US" dir="ltr">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{siteTitle}</title>
-    <meta name="description" content={subtitle} />
-    {favicon && (<link rel="icon" href={favicon} />)}
-    <meta name="robots" content="max-image-preview:large" />
-    <link rel="canonical" href={Astro.url} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/slicknav.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/all.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/block.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/default-style.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/style.css" />
-    <link rel="stylesheet" href="/assets/portfoliox/assets/css/responsive.css" />
-    <link rel="stylesheet" href="/assets/elementor/assets/css/frontend.min.css" />
-    <link rel="stylesheet" href="/assets/elementor/assets/css/widget-social-icons.min.css" />
-    <link rel="stylesheet" href="/assets/elementor/assets/css/conditionals/apple-webkit.min.css" />
-    <link rel="stylesheet" href="/assets/click-to-top/assets/css/click-top-icons.css" />
-    <link rel="stylesheet" href="/assets/click-to-top/assets/css/hover.css" />
-    <link rel="stylesheet" href="/assets/click-to-top/assets/css/click-top-style.css" />
-    <slot name="head" />
+    <meta name="description" content="Personal Portfolio of Gurmeet Singh - A Coding Kavi showing technical and poetry expertise." />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/Normal Logo - Transparent.PNG" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-brand-dark text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
     <slot />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/assets/portfoliox/assets/js/jquery.slicknav.js" is:inline></script>
-    <script src="/assets/portfoliox/assets/js/navigation.js" is:inline></script>
-    <script src="/assets/portfoliox/assets/js/scripts.js" is:inline></script>
-    <script src="/assets/elementor/assets/js/webpack.runtime.min.js" is:inline></script>
-    <script src="/assets/elementor/assets/js/frontend-modules.min.js" is:inline></script>
-    <script src="/assets/elementor/assets/js/frontend.min.js" is:inline></script>
   </body>
 </html>
+
+<style is:global>
+  /* Custom global scrollbars and selection colors */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #121212;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #FFD200;
+    border-radius: 4px;
+  }
+  ::selection {
+    background-color: #FFD200;
+    color: #121212;
+  }
+</style>
