@@ -88,19 +88,25 @@ import Layout from '../layouts/Layout.astro';
             <div class="absolute inset-0 bg-brand-lightDark rounded-3xl -rotate-3 border border-gray-800"></div>
             
             <!-- main placeholder image / profile frame -->
-            <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border-2 border-gray-700 bg-gradient-to-b from-brand-lightDark to-black flex flex-col items-center justify-center p-6 text-center z-10">
-              <!-- If image path exists user can place it here, currently showing an artistic avatar representation -->
-              <div class="w-32 h-32 rounded-full bg-brand-yellow/20 border-2 border-brand-yellow flex items-center justify-center text-brand-yellow mb-4 shadow-inner">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                </svg>
+            <!-- main placeholder image / profile frame -->
+            <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border-2 border-gray-700 bg-brand-lightDark z-10 group">
+              
+              <!-- Your Actual Picture -->
+              <img 
+                src="/profile.jpg" 
+                alt="Gurmeet Singh - A Coding Kavi" 
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+
+              <!-- Elegant Dark Overlay Tint with Your Quote -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300 flex flex-col justify-end p-6 text-left">
+                <h3 class="text-xl font-bold text-white leading-tight">Gurmeet Singh</h3>
+                <p class="text-xs text-brand-yellow tracking-widest uppercase font-mono mt-0.5">Project Manager & Poet</p>
+                <p class="text-[11px] text-gray-300 italic font-serif mt-2 border-l-2 border-brand-red pl-2">
+                  "Between algorithms and verses, I discovered balance."
+                </p>
               </div>
-              <h3 class="text-xl font-bold text-white">Gurmeet Singh</h3>
-              <p class="text-xs text-brand-yellow tracking-widest uppercase font-mono mt-1">Project Manager & Poet</p>
-              <div class="mt-4 p-3 bg-black/40 rounded-xl border border-gray-800 max-w-xs">
-                <p class="text-xs text-gray-400 italic">"Between algorithms and verses, I discovered balance."</p>
-              </div>
-              <span class="absolute bottom-2 text-[10px] text-gray-600 font-mono">Replace with your high-res picture</span>
+
             </div>
           </div>
         </div>
